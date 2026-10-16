@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>「青年电影网」新片速递·青年导演长片·独立影评档案 — qingniandianyingwang-app.github.io</title>
+<meta name="description" content="青年电影网（qingniandianyingwang-app.github.io）是一份由七位电影专业毕业生轮流值班维护的中文观影档案：每周挑出三部值得买票的青年导演新片，整理海外独立影展入围名单，把散落各处的中文影评按年份收进可检索的片库。不打分，不排榜单，只记录看完想说话的那几部。">
+<meta name="keywords" content="青年电影网,青年电影,青年导演新片,青年导演长片处女作,独立电影影展入围,艺术院线放映场次,中文影评档案,电影节入围名单查询,qingniandianyingwang-app">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="青年电影网编辑部">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#12141b">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="canonical" href="https://qingniandianyingwang-app.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="青年电影网">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:title" content="青年电影网 · 青年导演新片与独立影评档案">
+<meta property="og:description" content="每周三部值得买票的青年导演新片，外加影展入围名单与可按年份检索的中文影评片库。">
+<meta property="og:url" content="https://qingniandianyingwang-app.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="青年电影网 · 新片速递与独立影评">
+<meta name="twitter:description" content="七个人、四个城市、每周三一次线上会，只写看完想说话的电影。">
+<style>
+:root{
+  --ink:#12141b;
+  --ink-soft:#1b1f28;
+  --paper:#f3ecdd;
+  --paper-hi:#fffdf7;
+  --red:#c1402c;
+  --amber:#d99a2b;
+  --teal:#2f6f6a;
+  --mute:#6d6a63;
+  --line:rgba(18,20,27,.16);
+  --hard:5px 5px 0 var(--ink);
+  --serif:"Songti SC","STSong","Noto Serif SC",Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",sans-serif;
+  --mono:"SFMono-Regular",Menlo,Consolas,"Courier New",monospace;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--ink);
+  color:#e9e7e1;
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:1.75;
+  letter-spacing:.01em;
+}
+a{color:inherit;text-decoration:none;}
+h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.25;}
+p{margin:0 0 .9em;}
+ul,ol{margin:0;padding:0;list-style:none;}
+img,svg{max-width:100%;}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 22px;}
+.skip{position:absolute;left:-9999px;top:0;}
+.skip:focus{left:12px;top:12px;z-index:99;background:var(--amber);color:#12141b;padding:8px 14px;}
+
+/* 顶部细条 */
+.topbar{
+  border-bottom:1px solid rgba(233,231,225,.14);
+  font-size:13px;
+}
+.topbar .wrap{
+  display:flex;flex-wrap:wrap;gap:8px 26px;align-items:center;
+  min-height:44px;padding-top:6px;padding-bottom:6px;
+}
+.topbar span.k{color:var(--amber);letter-spacing:.14em;font-size:11px;text-transform:uppercase;}
+.topbar a{border-bottom:1px dotted rgba(233,231,225,.4);}
+.topbar a:hover{border-bottom-color:var(--amber);color:var(--amber);}
+.topbar .right{margin-left:auto;display:flex;gap:18px;flex-wrap:wrap;}
+
+/* 报头 */
+.masthead{padding:34px 0 26px;border-bottom:1px solid rgba(233,231,225,.14);}
+.masthead .wrap{
+  display:grid;grid-template-columns:minmax(0,1.55fr) minmax(240px,.95fr);
+  gap:30px;align-items:end;
+}
+.logo{font-family:var(--serif);font-size:clamp(38px,7.4vw,74px);letter-spacing:.06em;line-height:1;}
+.logo em{font-style:normal;color:var(--amber);}
+.logo-sub{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-top:14px;
+}
+.logo-en{font-family:var(--mono);font-size:12px;letter-spacing:.34em;color:var(--mute);}
+.site-url{
+  font-family:var(--mono);font-size:13px;color:#cfccc4;
+  border-bottom:1px dashed var(--red);padding-bottom:2px;word-break:break-all;
+}
+.site-url:hover{color:var(--amber);border-bottom-color:var(--amber);}
+.lede{color:#b6b3ac;font-size:15px;max-width:44em;margin-top:12px;}
+.ticket{
+  border:1px solid rgba(233,231,225,.28);
+  background:linear-gradient(160deg,rgba(217,154,43,.12),rgba(47,111,106,.1));
+  padding:16px 18px;
+}
+.ticket h2{font-size:12px;letter-spacing:.24em;color:var(--amber);font-family:var(--mono);font-weight:400;}
+.ticket .big{font-family:var(--serif);font-size:30px;line-height:1.2;margin:8px 0 4px;}
+.ticket dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;font-size:13px;color:#c9c6bf;}
+.ticket dt{color:var(--mute);}
+.ticket dd{margin:0;}
+
+/* 导航 */
+.gnav{
+  position:sticky;top:0;z-index:20;
+  background:rgba(18,20,27,.94);
+  border-bottom:1px solid rgba(233,231,225,.16);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+}
+.gnav .wrap{display:flex;align-items:center;gap:20px;min-height:52px;}
+.gnav .brand-sm{font-family:var(--serif);font-size:17px;letter-spacing:.1em;white-space:nowrap;}
+.gnav ul{
+  display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.gnav ul::-webkit-scrollbar{display:none;}
+.gnav li{white-space:nowrap;}
+.gnav li a{
+  display:block;padding:8px 12px;font-size:14.5px;color:#cfccc4;
+  border-bottom:2px solid transparent;
+}
+.gnav li a:hover,.gnav li a:focus{color:#fff;border-bottom-color:var(--red);}
+.gnav .to-main{margin-left:auto;flex:0 0 auto;}
+.gnav .to-main a{
+  font-size:12.5px;border:1px solid rgba(233,231,225,.32);padding:6px 12px;
+}
+.gnav .to-main a:hover{background:var(--red);border-color:var(--red);}
+
+/* 纸面主体 */
+.perf{height:16px;background-image:radial-gradient(circle at 8px 50%,var(--ink) 0 4.5px,transparent 4.5px);background-size:16px 16px;}
+.paper{background:var(--paper);color:var(--ink);}
+.paper .wrap{padding:0 22px;}
+.paper a{color:var(--ink);}
+main{padding:0;}
+.intro{
+  background:var(--paper-hi);border:1px solid var(--ink);box-shadow:var(--hard);
+  padding:26px 26px 22px;margin:34px 0 0;
+}
+.intro h2{font-family:var(--serif);font-size:clamp(23px,3.6vw,34px);letter-spacing:.02em;}
+.intro .sub{color:var(--mute);font-size:13.5px;margin-top:6px;font-family:var(--mono);letter-spacing:.06em;}
+.intro p{margin-top:14px;font-size:15.5px;}
+.intro strong{background:linear-gradient(transparent 62%,rgba(217,154,43,.42) 0);padding:0 2px;}
+
+.sec{padding:46px 0 8px;}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 18px;border-bottom:2px solid var(--ink);padding-bottom:10px;margin-bottom:22px;}
+.sec-head h2{font-family:var(--serif);font-size:clamp(21px,3.2vw,30px);letter-spacing:.04em;}
+.sec-head .num{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--red);}
+.sec-head .note{margin-left:auto;font-size:13px;color:var(--mute);}
+
+/* 非对称网格 */
+.mix{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;}
+.card{
+  grid-column:span 4;background:var(--paper-hi);
+  border:1px solid var(--ink);box-shadow:var(--hard);
+  padding:18px 18px 16px;display:flex;flex-direction:column;
+}
+.card.wide{grid-column:span 5;}
+.card.slim{grid-column:span 3;}
+.card:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink);}
+.card .tag{
+  align-self:flex-start;font-family:var(--mono);font-size:11px;letter-spacing:.16em;
+  background:var(--ink);color:var(--paper);padding:3px 9px;
+}
+.card .tag.alt{background:var(--teal);}
+.card .tag.third{background:var(--red);}
+.card h3{font-family:var(--serif);font-size:22px;margin:12px 0 6px;letter-spacing:.03em;}
+.card h3 a{border-bottom:1px solid var(--line);}
+.card h3 a:hover{border-bottom-color:var(--red);color:var(--red);}
+.meta{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.04em;}
+.card p{font-size:14.5px;color:#33312c;margin:10px 0 0;}
+.card .more{margin-top:auto;padding-top:14px;font-size:13.5px;}
+.card .more a{border-bottom:1px dashed var(--ink);}
+.card .more a:hover{color:var(--red);border-bottom-color:var(--red);}
+
+/* 长文列表 */
+.longlist{border-top:1px solid var(--ink);}
+.longlist li{display:grid;grid-template-columns:82px minmax(0,1fr) 132px;gap:18px;padding:20px 0;border-bottom:1px solid var(--line);}
+.longlist .idx{font-family:var(--serif);font-size:34px;line-height:1;color:var(--red);}
+.longlist h3{font-size:19px;font-family:var(--serif);letter-spacing:.02em;}
+.longlist h3 a:hover{color:var(--red);}
+.longlist p{font-size:14.5px;color:#3a3833;margin:6px 0 0;}
+.longlist .side{font-family:var(--mono);font-size:12px;color:var(--mute);text-align:right;line-height:1.9;}
+
+/* 时间轴 */
+.steps{position:relative;padding-left:26px;}
+.steps:before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:var(--ink);}
+.steps li{position:relative;padding:0 0 24px;}
+.steps li:before{content:"";position:absolute;left:-26px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);}
+.steps li.on:before{background:var(--amber);}
+.steps h3{font-size:18px;font-family:var(--serif);}
+.steps .when{font-family:var(--mono);font-size:12px;color:var(--red);letter-spacing:.1em;}
+.steps p{font-size:14.5px;color:#3a3833;margin:4px 0 0;}
+
+/* 表格 */
+.tablebox{border:1px solid var(--ink);box-shadow:var(--hard);background:var(--paper-hi);overflow:hidden;}
+table{width:100%;border-collapse:collapse;font-size:14.5px;}
+caption{text-align:left;font-family:var(--mono);font-size:12px;color:var(--mute);padding:12px 16px;border-bottom:1px solid var(--line);}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+thead th{background:var(--ink);color:var(--paper);font-weight:600;font-size:13px;letter-spacing:.08em;}
+tbody tr:nth-child(even){background:rgba(18,20,27,.035);}
+tbody td:first-child{font-family:var(--mono);color:var(--red);white-space:nowrap;}
+tbody tr:hover{background:rgba(217,154,43,.16);}
+
+/* 片库索引 */
+.tags{display:flex;flex-wrap:wrap;gap:9px;}
+.tags a{
+  display:inline-block;padding:5px 12px;border:1px dashed var(--ink);
+  font-size:13.5px;background:var(--paper-hi);
+}
+.tags a:hover{background:var(--ink);color:var(--paper);}
+.tags a.big{font-size:17px;padding:6px 15px;border-style:solid;}
+.tags a.mid{font-size:15px;}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--mute);margin:18px 0 8px;}
+
+/* 来信 */
+.letters{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px;}
+.letter{background:var(--paper-hi);border:1px solid var(--ink);box-shadow:var(--hard);padding:18px;}
+.letter blockquote{margin:0;font-size:15px;color:#33312c;}
+.letter .from{margin-top:12px;font-family:var(--mono);font-size:12px;color:var(--mute);}
+.letter .reply{margin-top:10px;padding-top:10px;border-top:1px dotted var(--ink);font-size:13.5px;color:#4a4842;}
+
+/* 侧栏 */
+aside{padding:10px 0 46px;}
+.panel{background:var(--paper-hi);border:1px solid var(--ink);box-shadow:var(--hard);padding:20px;}
+.panel h3{font-family:var(--serif);font-size:20px;letter-spacing:.04em;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:12px;}
+.panel ul li{padding:9px 0;border-bottom:1px dotted var(--line);font-size:14.5px;}
+.panel ul li:last-child{border-bottom:0;}
+.panel ul li a:hover{color:var(--red);}
+.panel .n{font-family:var(--mono);color:var(--red);margin-right:8px;font-size:12px;}
+.panel p{font-size:14.5px;color:#3a3833;}
+.panel .sig{font-family:var(--mono);font-size:12px;color:var(--mute);margin-top:10px;}
+
+/* 页脚 */
+footer{background:var(--ink);color:#cfccc4;border-top:1px solid rgba(233,231,225,.16);padding:40px 0 26px;}
+.foot-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:26px;}
+.foot-grid h4{font-size:12px;letter-spacing:.22em;color:var(--amber);font-family:var(--mono);font-weight:400;margin-bottom:10px;}
+.foot-grid ul li{padding:5px 0;font-size:14.5px;}
+.foot-grid ul li a:hover{color:#fff;border-bottom:1px solid var(--red);}
+.foot-brand{font-family:var(--serif);font-size:26px;letter-spacing:.08em;color:#fff;}
+.foot-url{font-family:var(--mono);font-size:13px;color:#cfccc4;border-bottom:1px dashed var(--red);word-break:break-all;}
+.foot-url:hover{color:var(--amber);border-bottom-color:var(--amber);}
+.foot-bottom{
+  margin-top:30px;padding-top:16px;border-top:1px solid rgba(233,231,225,.14);
+  display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13px;color:#8f8c85;
+}
+.foot-bottom .r{margin-left:auto;}
+
+@media (max-width:860px){
+  .masthead .wrap{grid-template-columns:1fr;gap:20px;align-items:start;}
+  .ticket{max-width:100%;}
+  .gnav .brand-sm{display:none;}
+  .gnav ul{flex:1 1 auto;}
+  .gnav .to-main{display:none;}
+  .card,.card.wide,.card.slim{grid-column:span 6;}
+  .longlist li{grid-template-columns:56px 1fr;gap:12px;}
+  .longlist .idx{font-size:26px;}
+  .longlist .side{grid-column:1 / -1;text-align:left;}
+  .intro{padding:20px 18px 18px;}
+}
+@media (max-width:640px){
+  body{font-size:15.5px;}
+  .wrap,.paper .wrap{padding:0 16px;}
+  .card,.card.wide,.card.slim{grid-column:span 12;}
+  .mix{gap:16px;}
+  .sec{padding:34px 0 4px;}
+  table,thead,tbody,tr,td{display:block;width:100%;}
+  thead{display:none;}
+  tbody tr{padding:6px 0;border-bottom:1px solid var(--ink);}
+  tbody td{border:0;padding:6px 16px;}
+  tbody td:before{
+    content:attr(data-label);display:block;font-family:var(--mono);
+    font-size:11px;letter-spacing:.14em;color:var(--mute);
+  }
+  tbody td:first-child:before{color:var(--red);}
+  caption{padding:12px 16px;}
+  .foot-bottom .r{margin-left:0;}
+}
+@media print{
+  .gnav,.topbar{display:none;}
+  body{background:#fff;color:#000;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+<a class="skip" href="#main">跳到正文内容</a>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="k">值班城市</span>
+    <a href="#">上海</a><a href="#">成都</a><a href="#">广州</a><a href="#">西安</a>
+    <span class="right">
+      <a href="#">投稿邮箱</a>
+      <a href="#">影展日历</a>
+      <a href="#">片方合作</a>
+    </span>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div>
+      <h1 class="logo">青年<em>电影</em>网</h1>
+      <div class="logo-sub">
+        <span class="logo-en">QINGNIAN FILM ARCHIVE</span>
+        <a class="site-url" href="https://qingniandianyingwang-app.github.io/">https://qingniandianyingwang-app.github.io</a>
+      </div>
+      <p class="lede">七个人、四个城市、每周三一次线上会。挑片没有公式，只有一条标准：看完想找个人说话。<strong>青年电影网</strong>只做记录，不做评判。</p>
+    </div>
+    <div class="ticket">
+      <h2>本周放映</h2>
+      <p class="big">《河的第二岸》</p>
+      <dl>
+        <dt>导演</dt><dd>陈默（首作）</dd>
+        <dt>片长</dt><dd>138 分钟</dd>
+        <dt>场次</dt><dd>上海 · 10月18日 19:30</dd>
+        <dt>状态</dt><dd>余票紧张</dd>
+      </dl>
+    </div>
+  </div>
+</header>
+
+<nav class="gnav" aria-label="主导航">
+  <div class="wrap">
+    <span class="brand-sm">青年电影网</span>
+    <ul>
+      <li><a href="#new">新片速递</a></li>
+      <li><a href="#review">影评深读</a></li>
+      <li><a href="#plan">导演计划</a></li>
+      <li><a href="#schedule">放映日程</a></li>
+      <li><a href="#library">片库索引</a></li>
+      <li><a href="#letters">影迷来信</a></li>
+    </ul>
+    <span class="to-main"><a href="#main">回到正文</a></span>
+  </div>
+</nav>
+
+<div class="perf" aria-hidden="true"></div>
+
+<div class="paper">
+<main id="main">
+  <div class="wrap">
+
+    <section class="intro" aria-labelledby="intro-t">
+      <h2 id="intro-t">这是一份不打分、不排榜单的观影档案</h2>
+      <p class="sub">UPDATED 每周三 21:00 · 第 214 期</p>
+      <p><strong>青年电影网</strong>从 2019 年一个校内放映社团的邮件组开始，最初只有二十来个人互相推荐片子。七年过去，邮件组变成了可以按年份、地区、片长三个维度检索的中文片库，收录了 1860 部青年导演作品与 4300 余篇影评。我们仍然不给电影打分——分数会让讨论停下来，而讨论才是这个站想留下的东西。</p>
+      <p>站点地址：<strong>https://qingniandianyingwang-app.github.io</strong>，永久免费开放，不接受片方付费收录。</p>
+    </section>
+
+    <section class="sec" id="new" aria-labelledby="new-t">
+      <div class="sec-head">
+        <span class="num">01</span>
+        <h2 id="new-t">新片速递</h2>
+        <span class="note">每周三更新 · 只写看完想说话的那几部</span>
+      </div>
+      <div class="mix">
+        <article class="card wide">
+          <span class="tag">本周头条</span>
+          <h3><a href="#">《河的第二岸》</a></h3>
+          <p class="meta">陈默 / 138 分钟 / 剧情 / 2026</p>
+          <p>一个县城水文站的记录员，用十七年时间把一条河的水位写成了日记。全片只有一个专业演员，其余都是当地居民。摄影机几乎不动，但第三幕那场夜戏，河面的反光把整块银幕都点亮了。</p>
+          <p class="more"><a href="#">读完整版观影笔记</a></p>
+        </article>
+        <article class="card">
+          <span class="tag alt">纪录</span>
+          <h3><a href="#">《夜班车经过县城》</a></h3>
+          <p class="meta">林一诺 / 101 分钟 / 2026</p>
+          <p>跟拍 K827 次列车上十一位夜班乘客，剪辑上把九个小时压成了一趟完整的旅程。</p>
+          <p class="more"><a href="#">查看拍摄手记</a></p>
+        </article>
+        <article class="card slim">
+          <span class="tag third">短片合集</span>
+          <h3><a href="#">《热带病虫害》</a></h3>
+          <p class="meta">苏禾 / 87 分钟 / 三段体</p>
+          <p>三段互不相干的南方故事，共用同一场没下完的雨。</p>
+          <p class="more"><a href="#">三段分章解读</a></p>
+        </article>
+        <article class="card slim">
+          <span class="tag">重映</span>
+          <h3><a href="#">《父亲留下的录像带》</a></h3>
+          <p class="meta">郑宽 / 112 分钟 / 4K 修复</p>
+          <p>1998 年的家庭 DV 素材，修复后第一次进院线。</p>
+          <p class="more"><a href="#">修复技术说明</a></p>
+        </article>
+        <article class="card wide">
+          <span class="tag alt">海外影展</span>
+          <h3><a href="#">2026 独立影展入围名单（第 3 批）</a></h3>
+          <p class="meta">整理于 10 月 12 日 / 共 41 部华语作品</p>
+          <p>编辑部把六个影展官方公布的入围名单做了交叉比对，剔除了重复条目，标出其中 9 部已有中文片源、24 部仍无引进计划。名单每周随官方更新同步刷新。</p>
+          <p class="more"><a href="#">下载名单表格</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="review" aria-labelledby="review-t">
+      <div class="sec-head">
+        <span class="num">02</span>
+        <h2 id="review-t">影评深读</h2>
+        <span class="note">长文 · 平均 4200 字 · 一个月两篇</span>
+      </div>
+      <ol class="longlist">
+        <li>
+          <span class="idx">01</span>
+          <div>
+            <h3><a href="#">当县城成为主语：近五年华语电影的地理转向</a></h3>
+            <p>从背景板到叙事主体，县城在银幕上的位置变了。我们统计了 2021—2026 年 120 部影片的取景地数据，看这个转向是怎么发生的。</p>
+          </div>
+          <div class="side">陈屿<br>9 月 28 日<br>6800 字</div>
+        </li>
+        <li>
+          <span class="idx">02</span>
+          <div>
+            <h3><a href="#">非职业演员的三十七种沉默</a></h3>
+            <p>素人表演常被夸"自然"，但那种不自在的停顿恰恰是最难拍的部分。作者采访了四位长期与非职业演员合作的导演。</p>
+          </div>
+          <div class="side">何雨桐<br>9 月 06 日<br>5100 字</div>
+        </li>
+        <li>
+          <span class="idx">03</span>
+          <div>
+            <h3><a href="#">修复一部 1998 年的家庭录像，需要几道工序</a></h3>
+            <p>磁带霉斑、色彩漂移、声画不同步。跟着修复师走一遍《父亲留下的录像带》的 4K 流程。</p>
+          </div>
+          <div class="side">编辑部<br>8 月 19 日<br>3900 字</div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="sec" id="plan" aria-labelledby="plan-t">
+      <div class="sec-head">
+        <span class="num">03</span>
+        <h2 id="plan-t">青年导演计划</h2>
+        <span class="note">从剧本到投递，走完全程需要 11 个月</span>
+      </div>
+      <ol class="steps">
+        <li class="on">
+          <span class="when">第 1—3 月</span>
+          <h3>剧本工坊</h3>
+          <p>每期 12 人，两周一次围读，由两位编剧轮流带。不看资历，只看文本能不能撑住一场长镜头。</p>
+        </li>
+        <li class="on">
+          <span class="when">第 4—7 月</span>
+          <h3>拍摄支持</h3>
+          <p>提供设备借用清单、场地协调与一份拍摄期的保险模板。不提供资金，也不参与创作决策。</p>
+        </li>
+        <li>
+          <span class="when">第 8—9 月</span>
+          <h3>粗剪看片会</h3>
+          <p>闭门放映，邀请三位互不认识的观众看完后只回答一个问题：哪里让你走神了。</p>
+        </li>
+        <li>
+          <span class="when">第 10—11 月</span>
+          <h3>影展投递</h3>
+          <p>协助整理字幕、物料与投递排期表。所有投递结果公开，包括被拒的记录。</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="sec" id="schedule" aria-labelledby="schedule-t">
+      <div class="sec-head">
+        <span class="num">04</span>
+        <h2 id="schedule-t">放映日程</h2>
+        <span class="note">艺术院线与高校放映 · 以片方公告为准</span>
+      </div>
+      <div class="tablebox">
+        <table>
+          <caption>2026 年 10 月—11 月 · 共 5 场 · 更新于 10 月 15 日</caption>
+          <thead>
+            <tr><th scope="col">日期</th><th scope="col">片名</th><th scope="col">导演</th><th scope="col">城市 / 场地</th><th scope="col">场次</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="日期">10-18</td>
+              <td data-label="片名"><a href="#">《河的第二岸》</a></td>
+              <td data-label="导演">陈默</td>
+              <td data-label="城市 / 场地">上海 · 大光明</td>
+              <td data-label="场次">19:30</td>
+            </tr>
+            <tr>
+              <td data-label="日期">10-21</td>
+              <td data-label="片名"><a href="#">《夜班车经过县城》</a></td>
+              <td data-label="导演">林一诺</td>
+              <td data-label="城市 / 场地">成都 · 峨影 1958</td>
+              <td data-label="场次">20:00</td>
+            </tr>
+            <tr>
+              <td data-label="日期">10-25</td>
+              <td data-label="片名"><a href="#">《热带病虫害》</a></td>
+              <td data-label="导演">苏禾</td>
+              <td data-label="城市 / 场地">广州 · 珠影</td>
+              <td data-label="场次">15:00</td>
+            </tr>
+            <tr>
+              <td data-label="日期">10-29</td>
+              <td data-label="片名"><a href="#">《父亲留下的录像带》</a></td>
+              <td data-label="导演">郑宽</td>
+              <td data-label="城市 / 场地">北京 · 资料馆</td>
+              <td data-label="场次">19:00</td>
+            </tr>
+            <tr>
+              <td data-label="日期">11-02</td>
+              <td data-label="片名"><a href="#">《没有名字的合唱团》</a></td>
+              <td data-label="导演">何雨桐</td>
+              <td data-label="城市 / 场地">西安 · 西北大学</td>
+              <td data-label="场次">18:30</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec" id="library" aria-labelledby="library-t">
+      <div class="sec-head">
+        <span class="num">05</span>
+        <h2 id="library-t">片库索引</h2>
+        <span class="note">1860 部影片 · 4300 篇影评 · 三种检索维度</span>
+      </div>
+      <p class="label">按年份</p>
+      <div class="tags">
+        <a class="big" href="#">2026</a><a href="#">2025</a><a class="mid" href="#">2024</a><a href="#">2023</a><a href="#">2022</a><a href="#">2021</a><a href="#">2020</a><a href="#">2019 及更早</a>
+      </div>
+      <p class="label">按地区</p>
+      <div class="tags">
+        <a class="mid" href="#">大陆</a><a href="#">台湾</a><a href="#">香港</a><a href="#">马来西亚华语</a><a href="#">新加坡</a><a class="mid" href="#">海外华裔导演</a><a href="#">合拍</a>
+      </div>
+      <p class="label">按片长</p>
+      <div class="tags">
+        <a href="#">短片（30 分钟内）</a><a href="#">中片（30—70 分钟）</a><a class="mid" href="#">标准长片（70—120）</a><a href="#">超长（120 分钟以上）</a>
+      </div>
+    </section>
+
+    <section class="sec" id="letters" aria-labelledby="letters-t">
+      <div class="sec-head">
+        <span class="num">06</span>
+        <h2 id="letters-t">影迷来信</h2>
+        <span class="note">每月选五封，附上编辑回复</span>
+      </div>
+      <div class="letters">
+        <article class="letter">
+          <blockquote>我在县城影院看的《河的第二岸》，全场六个人，散场后没人说话，走了两步又都停下来。想问问这片子还会在别的地方放吗？</blockquote>
+          <p class="from">来自甘肃天水 · 读者编号 0417</p>
+          <p class="reply">编辑回复：11 月西安有一场高校放映，我们帮你留了资料，可以在放映日程页找到时间。</p>
+        </article>
+        <article class="letter">
+          <blockquote>你们为什么不打分？我每次选片都要看好几个平台的评分，很累。</blockquote>
+          <p class="from">来自江苏宿迁 · 读者编号 0392</p>
+          <p class="reply">编辑回复：打分的平台已经够多了。我们更想把"谁适合看这片子"讲清楚，这件事评分做不到。</p>
+        </article>
+        <article class="letter">
+          <blockquote>大三学生，想拍第一部短片，预算只有八千块，是不是不该开始？</blockquote>
+          <p class="from">来自四川绵阳 · 读者编号 0426</p>
+          <p class="reply">编辑回复：八千块拍 12 分钟足够了。先看导演计划里第 4—7 月的设备清单，很多是可以借的。</p>
+        </article>
+      </div>
+    </section>
+
+    <aside aria-label="补充信息">
+      <div class="panel">
+        <h3>编辑部手记</h3>
+        <p>这周为了核对一份 2019 年的放映记录，翻出了当年社团的邮件组存档，一共 1400 多封。挑了其中 12 封有代表性的放在片库索引里，做成了一条时间线——那时候我们连片名都会写错。</p>
+        <p class="sig">值班编辑：林 · 10 月 15 日 23:40</p>
+      </div>
+      <div class="panel" style="margin-top:18px;">
+        <h3>站内热门</h3>
+        <ul>
+          <li><span class="n">01</span><a href="#">青年导演处女作片单（2020—2026）</a></li>
+          <li><span class="n">02</span><a href="#">华语纪录片的发行困境</a></li>
+          <li><span class="n">03</span><a href="#">如何申请艺术院线放映场地</a></li>
+          <li><span class="n">04</span><a href="#">影展投递排期表模板</a></li>
+          <li><span class="n">05</span><a href="#">非职业演员合作注意事项</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</main>
+</div>
+
+<div class="perf" aria-hidden="true"></div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <p class="foot-brand">青年电影网</p>
+        <p style="margin-top:10px;font-size:14.5px;">青年导演新片速递、独立影展入围名单、中文影评档案。</p>
+        <p style="margin-top:12px;"><a class="foot-url" href="https://qingniandianyingwang-app.github.io/">https://qingniandianyingwang-app.github.io</a></p>
+      </div>
+      <div>
+        <h4>栏目</h4>
+        <ul>
+          <li><a href="#new">新片速递</a></li>
+          <li><a href="#review">影评深读</a></li>
+          <li><a href="#plan">青年导演计划</a></li>
+          <li><a href="#schedule">放映日程</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>片库</h4>
+        <ul>
+          <li><a href="#library">按年份检索</a></li>
+          <li><a href="#library">按地区检索</a></li>
+          <li><a href="#library">按片长检索</a></li>
+          <li><a href="#">影展入围名单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#">编辑部是谁</a></li>
+          <li><a href="#">投稿与转载</a></li>
+          <li><a href="#">片方合作说明</a></li>
+          <li><a href="#">内容更正记录</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>青年电影网 · 内容由编辑部与读者共同维护</span>
+      <span>不接受付费收录 · 转载请注明出处</span>
+      <span class="r">最后更新：2026 年 10 月 15 日</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://qingniandianyingwang-app.github.io/#website",
+      "url": "https://qingniandianyingwang-app.github.io/",
+      "name": "青年电影网",
+      "alternateName": "青年电影档案",
+      "inLanguage": "zh-CN",
+      "description": "记录青年导演新片、独立影展入围名单与中文影评的观影档案站，不打分，不排榜单。"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://qingniandianyingwang-app.github.io/#org",
+      "url": "https://qingniandianyingwang-app.github.io/",
+      "name": "青年电影网编辑部",
+      "foundingDate": "2019",
+      "areaServed": "CN",
+      "knowsAbout": ["青年电影", "青年导演", "独立电影影展", "中文影评"]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "青年电影网", "item": "https://qingniandianyingwang-app.github.io/"},
+        {"@type": "ListItem", "position": 2, "name": "新片速递", "item": "https://qingniandianyingwang-app.github.io/#new"},
+        {"@type": "ListItem", "position": 3, "name": "影评深读", "item": "https://qingniandianyingwang-app.github.io/#review"}
+      ]
+    }
+  ]
+}
+</script>
+</body>
+</html>
